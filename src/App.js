@@ -12,10 +12,18 @@ function App() {
   return (
     <div className="App">
       <id className="transactionsContainerMain">
-        <h1>
-          TRANSACTION <br />
-          SUMMARY
-        </h1>
+        <header>
+          <h1>
+            TRANSACTION <br />
+            SUMMARY
+          </h1>
+
+          <div className="filters">
+            <button>All transactions</button>
+            <button>Income Type</button>
+            <button>Expense Type</button>
+          </div>
+        </header>
 
         <div id="allTransactionsContainer">
           {transactionData.map((item) => {
@@ -28,7 +36,6 @@ function App() {
           })}
         </div>
 
-        <div className="filters"></div>
         <div className="calculations">
           <h3>Total Income</h3>
           <h3>Total Expenses</h3>
