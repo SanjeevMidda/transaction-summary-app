@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <id className="transactionsContainerMain">
+      <div id="transactionsContainerMain">
         <header>
           <h1>
             TRANSACTION <br />
@@ -26,22 +26,35 @@ function App() {
         </header>
 
         <div id="allTransactionsContainer">
+          <div className="transactionHeadings">
+            <h3>Type</h3>
+            <h3>Income</h3>
+          </div>
+
           {transactionData.map((item) => {
             return (
-              <div>
-                <h4>Type {item.type}</h4>
-                <h4>Amount {item.amount}</h4>
+              <div class="mappedTransactions">
+                <h4> {item.type}</h4>
+                <h4>£{item.amount}</h4>
               </div>
             );
           })}
         </div>
 
         <div className="calculations">
-          <h3>Total Income</h3>
-          <h3>Total Expenses</h3>
-          <h3>Final Balance</h3>
+          <h3>
+            Total Income <br />
+            £10
+          </h3>
+          <h3>
+            Total Expenses <br /> £5
+          </h3>
+          <h3>
+            Final Balance <br />
+            £5
+          </h3>
         </div>
-      </id>
+      </div>
     </div>
   );
 }

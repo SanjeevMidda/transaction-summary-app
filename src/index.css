@@ -12,10 +12,11 @@
 }
 
 #transactionsContainerMain {
-  border: 1px solid black;
-  width: 60dvw;
+  /* border: 1px solid black; */
+  /* width: 60dvw; */
   height: 80dvh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -40,14 +41,35 @@ header {
 #allTransactionsContainer {
   border: 1px solid red;
   width: 40dvw;
-  height: 40dvh;
+  /* height: 40dvh; */
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 10px;
 }
 
+.transactionHeadings {
+  display: flex;
+  justify-content: space-between;
+}
+
 .calculations {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 20px;
+  width: 100%;
+
+  h3 {
+    font-size: 12px;
+  }
+}
+
+.mappedTransactions {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid orange; */
+}
+
+h4 {
+  font-size: 14px;
 }
