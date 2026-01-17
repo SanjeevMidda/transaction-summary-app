@@ -1,8 +1,9 @@
 import "./index.css";
 import { useState } from "react";
+import { transactionData } from "./data/transactionData";
 
 function App() {
-  const [transactions, setTransactions] = useState();
+  const [transactions, setTransactions] = useState(transactionData);
 
   const totalIncome = () => {};
   const totalExpenses = () => {};
