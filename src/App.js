@@ -9,6 +9,10 @@ function App() {
     { id: 4, type: "expense", amount: 150 },
   ]);
 
+  const totalIncome = () => {};
+  const totalExpenses = () => {};
+  const finalBalance = () => {};
+
   return <div className="App"></div>;
 }
 
