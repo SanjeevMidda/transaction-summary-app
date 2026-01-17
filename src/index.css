@@ -51,6 +51,11 @@ header {
 .transactionHeadings {
   display: flex;
   justify-content: space-between;
+
+  h3 {
+    font-weight: 600;
+    font-size: 14px;
+  }
 }
 
 .calculations {

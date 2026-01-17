@@ -28,12 +28,15 @@ function App() {
         <div id="allTransactionsContainer">
           <div className="transactionHeadings">
             <h3>Type</h3>
-            <h3>Income</h3>
+            <h3>Amount</h3>
           </div>
 
           {transactionData.map((item) => {
             return (
-              <div class="mappedTransactions">
+              <div
+                class="mappedTransactions"
+                style={{ color: item.type === "income" ? "green" : "red" }}
+              >
                 <h4> {item.type}</h4>
                 <h4>£{item.amount}</h4>
               </div>
