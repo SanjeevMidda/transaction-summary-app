@@ -5,9 +5,37 @@ import { transactionData } from "./data/transactionData";
 function App() {
   const [transactions, setTransactions] = useState(transactionData);
 
-  const totalIncome = () => {};
+  const totalIncome = () => {
+    let filteringIncome = transactions.filter(
+      (transaction) => transaction.type === "income"
+    );
+
+    const totalIncomeCalculated = filteringIncome.reduce(
+      (sum, item) => sum + item.amount,
+      0
+    );
+
+    return totalIncomeCalculated;
+  };
+
   const totalExpenses = () => {};
   const finalBalance = () => {};
+
+  const showAllTransactions = () => {};
+
+  const filterIncome = () => {
+    const filteredTransactions = transactions.filter((item) => {
+      return item.type === "income";
+    });
+
+    console.log(filteredTransactions);
+
+    setTransactions((transactions) => filteredTransactions);
+
+    console.log(transactions);
+  };
+
+  const filterExpenseType = () => {};
 
   return (
     <div className="App">
@@ -20,7 +48,7 @@ function App() {
 
           <div className="filters">
             <button>All transactions</button>
-            <button>Income Type</button>
+            <button onClick={filterIncome}>Income Type</button>
             <button>Expense Type</button>
           </div>
         </header>
@@ -34,7 +62,7 @@ function App() {
           {transactionData.map((item) => {
             return (
               <div
-                class="mappedTransactions"
+                className="mappedTransactions"
                 style={{ color: item.type === "income" ? "green" : "red" }}
               >
                 <h4> {item.type}</h4>
@@ -47,14 +75,13 @@ function App() {
         <div className="calculations">
           <h3>
             Total Income <br />
-            £10
+            <p>£{totalIncome()}</p>
           </h3>
           <h3>
             Total Expenses <br /> £5
           </h3>
           <h3>
             Final Balance <br />
-            £5
           </h3>
         </div>
       </div>
