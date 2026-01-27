@@ -4,6 +4,12 @@ import { transactionData } from "./data/transactionData";
 
 function App() {
   const [transactions, setTransactions] = useState(transactionData);
+  const [filter, setFilter] = useState("expense");
+
+  const transactionsToRender = transactions.filter((t) => {
+    if (filter === "all") return true;
+    return t.type === filter;
+  });
 
   const totalIncome = () => {
     let filteringIncome = transactions.filter(
@@ -19,23 +25,8 @@ function App() {
   };
 
   const totalExpenses = () => {};
+
   const finalBalance = () => {};
-
-  const showAllTransactions = () => {};
-
-  const filterIncome = () => {
-    const filteredTransactions = transactions.filter((item) => {
-      return item.type === "income";
-    });
-
-    console.log(filteredTransactions);
-
-    setTransactions((transactions) => filteredTransactions);
-
-    console.log(transactions);
-  };
-
-  const filterExpenseType = () => {};
 
   return (
     <div className="App">
@@ -47,9 +38,9 @@ function App() {
           </h1>
 
           <div className="filters">
-            <button>All transactions</button>
-            <button onClick={filterIncome}>Income Type</button>
-            <button>Expense Type</button>
+            <button onClick={() => setFilter("all")}>All transactions</button>
+            <button onClick={() => setFilter("income")}>Income Type</button>
+            <button onClick={() => setFilter("expense")}>Expense Type</button>
           </div>
         </header>
 
@@ -59,7 +50,7 @@ function App() {
             <h3>Amount</h3>
           </div>
 
-          {transactionData.map((item) => {
+          {transactionsToRender.map((item) => {
             return (
               <div
                 className="mappedTransactions"
