@@ -26,7 +26,9 @@ function App() {
 
   const totalExpenses = () => {};
 
-  const finalBalance = () => {};
+  const finalBalance = () => {
+    setTransactions()
+  };
 
   return (
     <div className="App">
